@@ -8,7 +8,7 @@
 
 /*
    兩輪差分模型
-   
+
           x
           ^
           |
@@ -44,11 +44,12 @@ public:
       float dth = (motor_dis[0] + motor_dis[1]) / (2 * body_radius);
       float vxy = 1000 * dxy_ave / interval;
       float vth = 1000 * dth / interval;
-
+      float dx = 0, dy = 0;
+      
       odom->vel_x = vxy;
       odom->vel_y = 0;
       odom->vel_z = vth;
-      float dx = 0, dy = 0;
+
       if (motor_dis[0] != motor_dis[1]) {
          dx = cos(dth) * dxy_ave;
          dy = -sin(dth) * dxy_ave;
